@@ -38,7 +38,7 @@ public class GamePanel {
     Rock rock;
     Orb orb;
     Shield shield;
-    Wall wall;
+   // Wall wall;
     Bomb bomb;
     public GamePanel(int x, int y){
         widthOfPhone = x;
@@ -85,6 +85,7 @@ public class GamePanel {
             }
         }
         */
+
         if(rocket.hitbox.intersect(rock.hitbox)){
             if(!shieldOn){
                 rocket.updateDeath();
@@ -135,8 +136,8 @@ public class GamePanel {
         orb.update(widthOfPhone);
         shield.update(widthOfPhone);
         rock.update(widthOfPhone);
-        bomb.update(widthOfPhone);
-        wall.update(widthOfPhone);
+            bomb.update(widthOfPhone);
+       // wall.update(widthOfPhone);
         if (orb.hitbox.bottom >= heightOfPhone){
             orb.resetX((int)(Math.random()*(widthOfPhone-200)));
         }
@@ -164,12 +165,11 @@ public class GamePanel {
                 //|| rocket.hitbox.intersect(wall.hitbox)
             if(!shieldOn) {
                 if (rocket.rocketDeath.playedOnce()) {
-                    canvas.drawText("fuckkkkk", widthOfPhone/3, heightOfPhone/2, paint);
                     canvas.drawRect(0, 0, Display.displayMetrics.widthPixels, Display.displayMetrics.heightPixels, paint3);
                     gameEnded = true;
                     return;
                 }
-                canvas.drawText("you lost tbh fam", widthOfPhone/2, heightOfPhone/2, paint);
+                canvas.drawText("you lost fam", widthOfPhone/2, heightOfPhone/2, paint);
                 rocket.drawDeath(canvas);
                 return;
             }
@@ -179,7 +179,7 @@ public class GamePanel {
         orb.draw(canvas);
         rock.draw(canvas);
         shield.draw(canvas);
-        bomb.draw(canvas);
+            bomb.draw(canvas);
 /*
         if(wall.hitbox.right < widthOfPhone){
             wall.draw(canvas);
